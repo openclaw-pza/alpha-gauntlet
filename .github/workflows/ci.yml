@@ -22,18 +22,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install TA-Lib C library
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ta-lib || {
-            wget https://github.com/ta-lib/ta-lib/releases/download/v0.4.0/ta-lib_0.4.0_amd64.deb
-            sudo dpkg -i ta-lib_0.4.0_amd64.deb || sudo apt-get install -f -y
-          }
-
       - name: Install package
         run: |
           python -m pip install --upgrade pip
-          pip install -e ".[dev]"
+          pip install -e ".[dev]"   # TA-Lib/PyWavelets are an optional [factors] extra (C lib); not needed for core tests
 
       - name: Lint
         run: ruff check alphagauntlet examples tests

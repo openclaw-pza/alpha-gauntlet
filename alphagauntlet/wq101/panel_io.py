@@ -20,7 +20,6 @@ Data directory:
 """
 import os
 
-import numpy as np
 import pandas as pd
 
 # Configurable data directory (env override; default ./data). No deployment path is hard-coded.

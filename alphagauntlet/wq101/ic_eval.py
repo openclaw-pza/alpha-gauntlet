@@ -13,7 +13,6 @@ Input: a factor wide frame (index=time, columns=symbols) + a close wide frame. f
 internally with panel_io.forward_return_panel (consistent with factor_eval._forward_return).
 """
 import numpy as np
-import pandas as pd
 
 from alphagauntlet.wq101 import panel_io
 

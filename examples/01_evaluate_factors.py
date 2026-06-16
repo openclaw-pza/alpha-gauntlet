@@ -24,7 +24,7 @@ import tempfile
 _DATA = os.path.join(tempfile.gettempdir(), "alphagauntlet_example_data")
 os.environ.setdefault("ALPHAGAUNTLET_DATA_DIR", _DATA)
 
-from _sample_data import SAMPLE_POOL, make_panel   # noqa: E402
+from _sample_data import SAMPLE_POOL, make_panel  # noqa: E402
 
 
 def main():

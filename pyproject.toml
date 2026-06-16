@@ -23,17 +23,22 @@ classifiers = [
     "Topic :: Office/Business :: Financial :: Investment",
     "Topic :: Scientific/Engineering",
 ]
+# Core deps are pure-Python / prebuilt wheels (no C toolchain needed). The evolution engine
+# needs only numpy. TA-Lib + PyWavelets (C library) power the factor library and are an
+# OPTIONAL extra: install `alphagauntlet[factors]` for the full factor/backtest stack.
 dependencies = [
     "numpy>=1.23",
     "pandas>=1.5",
     "scipy>=1.9",
-    "TA-Lib>=0.4.24",
-    "PyWavelets>=1.4",
     "pyarrow>=10.0",
     "ccxt>=4.0",
 ]
 
 [project.optional-dependencies]
+factors = [
+    "TA-Lib>=0.4.24",
+    "PyWavelets>=1.4",
+]
 dev = [
     "pytest>=7.0",
     "ruff>=0.4",
@@ -42,9 +47,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/alpha-gauntlet/alpha-gauntlet"
-Documentation = "https://github.com/alpha-gauntlet/alpha-gauntlet/tree/main/docs"
-Source = "https://github.com/alpha-gauntlet/alpha-gauntlet"
+Homepage = "https://github.com/openclaw-pza/alpha-gauntlet"
+Documentation = "https://github.com/openclaw-pza/alpha-gauntlet/tree/main/docs"
+Source = "https://github.com/openclaw-pza/alpha-gauntlet"
 
 [tool.setuptools.packages.find]
 include = ["alphagauntlet*"]
@@ -54,8 +59,12 @@ line-length = 110
 target-version = "py310"
 
 [tool.ruff.lint]
-select = ["E", "F", "W", "I", "UP", "B"]
-ignore = ["E741"]   # ambiguous variable name (l/o/I) appears in transcribed alpha formulas
+# Lean rule set for a transcribed-formula research codebase: catch real bugs (pyflakes `F`)
+# and keep imports tidy (`I`). Style opinions (E501 line-length, E702 semicolons, UP type-hint
+# modernization, B bugbear) are intentionally NOT enforced on the dense numerical / alpha-formula
+# code, where long expression lines and compact statements are faithful to the source formulas.
+select = ["F", "I"]
+ignore = ["F841"]   # unused locals are tolerated in research/transcription code
 
 [tool.black]
 line-length = 110

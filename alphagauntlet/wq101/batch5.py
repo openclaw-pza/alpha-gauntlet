@@ -25,7 +25,6 @@ inside fn (runner uniformly maps +/-inf->NaN).
 from alphagauntlet.wq101.batch2 import alpha_041, alpha_042
 from alphagauntlet.wq101.batch3 import alpha_068
 
-
 # --------------------------------------------------------------------------- #
 # Keys: wq081/wq082/wq083 (fresh make-up keys, no clash with wq001-wq080), value -> original Alpha function.
 # --------------------------------------------------------------------------- #

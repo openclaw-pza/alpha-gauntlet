@@ -284,7 +284,7 @@ def render_text_report(report: dict) -> str:
     inc_names = list(INCUMBENTS.keys())
     # transposed display: rows=candidates, columns=incumbents (incumbent names abbreviated)
     short = {nm: nm[:8] for nm in inc_names}
-    header = f"{'cand\\inc':<14}" + "".join(f"{short[n]:>9}" for n in inc_names)
+    header = f"{'cand/inc':<14}" + "".join(f"{short[n]:>9}" for n in inc_names)
     lines.append(header)
     for pc in report["per_candidate"]:
         if pc.get("parse_error"):

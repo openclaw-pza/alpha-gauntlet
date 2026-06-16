@@ -25,8 +25,12 @@ import numpy as np
 import pandas as pd
 import talib
 
-from alphagauntlet.regime import POOL          # the shared symbol universe (small caps included; symbols missing data are skipped)
-from alphagauntlet import wavelet_factors       # time-frequency / OU factors (wavelet energy ratio + OU reversion pressure, anti-lookahead, see that module)
+from alphagauntlet import (
+    wavelet_factors,  # time-frequency / OU factors (wavelet energy ratio + OU reversion pressure, anti-lookahead, see that module)
+)
+from alphagauntlet.regime import (
+    POOL,  # the shared symbol universe (small caps included; symbols missing data are skipped)
+)
 
 # Data directory and state directory are configurable via environment variables; no deployment path is hard-coded.
 DATA_DIR = os.environ.get("ALPHAGAUNTLET_DATA_DIR", os.path.join(".", "data"))
@@ -211,7 +215,8 @@ R2_DESC = {
 def _inject_r2(panel, tf="1h", n_tail=None):
     """LLM blind-gen round-2 adopted factor injection (same structure as _inject_llm1, provenance accounted separately). fail-soft."""
     try:
-        from alphagauntlet.wq101 import llm_round2_adopted as r2, panel_io
+        from alphagauntlet.wq101 import llm_round2_adopted as r2
+        from alphagauntlet.wq101 import panel_io
         fns = dict(r2.ALPHAS)
         P = panel_io.load_field_panel(pool=list(panel), tf=tf, n_tail=n_tail)
     except Exception:  # noqa: BLE001

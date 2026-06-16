@@ -23,7 +23,6 @@ ts_argmax semantics note (Alpha#057 / #060):
   intentional deviation from the pseudo-code.
 """
 import numpy as np
-import pandas as pd
 
 from alphagauntlet.wq101 import ops
 

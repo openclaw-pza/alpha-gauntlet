@@ -29,22 +29,23 @@ from __future__ import annotations
 
 import sys
 from dataclasses import dataclass, field
-from typing import List, Optional as Opt, Tuple
+from typing import List, Tuple
+from typing import Optional as Opt
 
 from pyparsing import (
-    Word,
-    alphas,
-    alphanums,
-    infix_notation,
-    opAssoc,
-    one_of,
-    Optional,
+    Combine,
     DelimitedList,
     Forward,
+    Literal,
+    Optional,
     ParserElement,
     Regex,
-    Combine,
-    Literal,
+    Word,
+    alphanums,
+    alphas,
+    infix_notation,
+    one_of,
+    opAssoc,
 )
 
 # packrat speeds up nested parsing; raise the recursion limit for deep expressions.
