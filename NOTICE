@@ -1,0 +1,48 @@
+alpha-gauntlet
+Copyright (c) 2026 alpha-gauntlet contributors
+
+This product includes software and methodology that builds on the following
+third-party works. Their licenses and citations are reproduced/attributed below.
+
+------------------------------------------------------------------------------
+1. QuantaAlpha (MIT License)
+------------------------------------------------------------------------------
+Several operators in the formulaic-alpha library (the extended operator set in
+`alphagauntlet/wq101/ops_ext.py`, the DSL evaluator in
+`alphagauntlet/wq101/dsl.py`, and the re-skin screening logic in
+`alphagauntlet/wq101/reskin_screen.py`) are derived from or inspired by the
+QuantaAlpha project, which is distributed under the MIT License.
+
+    MIT License -- Copyright (c) the QuantaAlpha authors.
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software ... (full MIT text as in the LICENSE file).
+
+------------------------------------------------------------------------------
+2. WorldQuant "101 Formulaic Alphas"
+------------------------------------------------------------------------------
+The alpha formulas transcribed in `alphagauntlet/wq101/` (the alpha005,
+alpha020, alpha024, alpha077, ... families) are implementations of formulas
+published in:
+
+    Zura Kakushadze, "101 Formulaic Alphas",
+    Wilmott Magazine, 2016 (84), pp. 72-81.
+    arXiv:1601.00991
+
+These are re-implementations of publicly published formulas for research and
+evaluation purposes. Please cite the original paper if you use them in academic
+or published work.
+
+------------------------------------------------------------------------------
+3. TA-Lib (BSD License)
+------------------------------------------------------------------------------
+Factor and indicator computation uses TA-Lib (Technical Analysis Library) via
+its Python bindings. TA-Lib is distributed under the BSD License.
+
+    Copyright (c) the TA-Lib authors. Redistribution and use in source and
+    binary forms, with or without modification, are permitted under the terms
+    of the BSD License.
+
+------------------------------------------------------------------------------
+Other dependencies (numpy, pandas, scipy, PyWavelets, pyarrow, ccxt) are used
+under their respective open-source licenses (BSD/MIT-family). See each project
+for full license text.

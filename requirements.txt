@@ -1,0 +1,7 @@
+numpy>=1.23
+pandas>=1.5
+scipy>=1.9
+TA-Lib>=0.4.24
+PyWavelets>=1.4
+pyarrow>=10.0
+ccxt>=4.0

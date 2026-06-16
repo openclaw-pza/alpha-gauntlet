@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alphagauntlet"
+version = "0.1.0"
+description = "A factor-research framework with IC/ICIR/t-stat evaluation, a PIT-correct backtester, a WQ101+custom factor library, and an anti-overfit ratchet evolution engine."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "alpha-gauntlet contributors" }]
+keywords = ["quant", "factor-research", "backtesting", "alpha", "cross-sectional", "overfitting"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "numpy>=1.23",
+    "pandas>=1.5",
+    "scipy>=1.9",
+    "TA-Lib>=0.4.24",
+    "PyWavelets>=1.4",
+    "pyarrow>=10.0",
+    "ccxt>=4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.4",
+    "black>=24.0",
+    "pre-commit>=3.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/alpha-gauntlet/alpha-gauntlet"
+Documentation = "https://github.com/alpha-gauntlet/alpha-gauntlet/tree/main/docs"
+Source = "https://github.com/alpha-gauntlet/alpha-gauntlet"
+
+[tool.setuptools.packages.find]
+include = ["alphagauntlet*"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = ["E741"]   # ambiguous variable name (l/o/I) appears in transcribed alpha formulas
+
+[tool.black]
+line-length = 110
+target-version = ["py310"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
